@@ -1,1 +1,156 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Richard Trades</title>
+    <style>
+        body {
+            background-color: #1E1E2E;
+            color: #E0E0E0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #2E2E3E;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: #E0E0E0;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #575757;
+        }
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+        .dropdown .dropbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: #E0E0E0;
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            float: none;
+            color: #E0E0E0;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: #575757;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        #chart-container {
+            width: 80%;
+            margin: 50px auto;
+        }
+        canvas {
+            background-color: #1E1E2E;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Richard Trades</h1>
+    </header>
+    <nav>
+        <div class="dropdown">
+            <button class="dropbtn">Trading Strategy</button>
+            <div class="dropdown-content">
+                <a href="#">Strategy 1</a>
+                <a href="#">Strategy 2</a>
+                <a href="#">Strategy 3</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Chart Layout</button>
+            <div class="dropdown-content">
+                <a href="#">Layout 1</a>
+                <a href="#">Layout 2</a>
+                <a href="#">Layout 3</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Contact Me</button>
+            <div class="dropdown-content">
+                <a href="#">Email</a>
+                <a href="#">Phone</a>
+                <a href="#">Social Media</a>
+            </div>
+        </div>
+    </nav>
+    <div id="chart-container">
+        <canvas id="tradingChart"></canvas>
+    </div>
+    <script>
+        const ctx = document.getElementById('tradingChart').getContext('2d');
+        const tradingChart = new Chart(ctx, {
+            type: 'line', // Using line chart for simplicity in this example
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                datasets: [{
+                    label: 'Stock Price',
+                    data: [120, 150, 170, 180, 190, 200],
+                    backgroundColor: '#3B82F6',
+                    borderColor: '#3B82F6',
+                    fill: false,
+                    tension: 0.1
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        grid: {
+                            color: '#2E2E3E'
+                        },
+                        ticks: {
+                            color: '#E0E0E0'
+                        }
+                    },
+                    y: {
+                        grid: {
+                            color: '#2E2E3E'
+                        },
+                        ticks: {
+                            color: '#E0E0E0'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
