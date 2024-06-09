@@ -23,11 +23,19 @@
         }
         main {
             padding: 20px;
+            text-align: center;
         }
-        iframe {
-            width: 100%;
-            height: 90vh; /* Adjust the height as needed */
-            border: none;
+        a.button {
+            background-color: #3B82F6;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        a.button:hover {
+            background-color: #2563EB;
         }
     </style>
 </head>
@@ -36,7 +44,8 @@
         <h1>ICT Index</h1>
     </header>
     <main>
-        <iframe src="https://www.ictindex.io/" title="ICT Index"></iframe>
+        <p>Click the button below to visit the ICT Index website:</p>
+        <a class="button" href="https://www.ictindex.io/" target="_blank">Visit ICT Index</a>
     </main>
 </body>
 </html>
