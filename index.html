@@ -79,6 +79,11 @@
         canvas {
             background-color: #1E1E2E;
         }
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: #2E2E3E;
+        }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -90,28 +95,44 @@
         <div class="dropdown">
             <button class="dropbtn">Trading Strategy</button>
             <div class="dropdown-content">
-                <a href="#">Strategy 1</a>
-                <a href="#">Strategy 2</a>
-                <a href="#">Strategy 3</a>
+                <a href="#strategy1">CRT</a>
+                <a href="#strategy2">Basic ICT Pdarrays</a>
+                <a href="#strategy3">ICT Index</a>
             </div>
         </div>
         <div class="dropdown">
             <button class="dropbtn">Chart Layout</button>
             <div class="dropdown-content">
-                <a href="#">Layout 1</a>
-                <a href="#">Layout 2</a>
-                <a href="#">Layout 3</a>
+                <a href="https://www.tradingview.com/chart/rJ1rCJ9r/" target="_blank">Chart Layout 1</a>
             </div>
         </div>
         <div class="dropdown">
             <button class="dropbtn">Contact Me</button>
             <div class="dropdown-content">
-                <a href="#">Email</a>
-                <a href="#">Phone</a>
-                <a href="#">Social Media</a>
+                <a href="#contact">Email</a>
+                <a href="#contact">Phone</a>
+                <a href="#contact">Social Media</a>
             </div>
         </div>
     </nav>
+    <section id="strategy1">
+        <h1>CRT</h1>
+        <p>Details about CRT trading strategy...</p>
+    </section>
+    <section id="strategy2">
+        <h1>Basic ICT Pdarrays</h1>
+        <p>Details about Basic ICT Pdarrays trading strategy...</p>
+    </section>
+    <section id="strategy3">
+        <h1>ICT Index</h1>
+        <p>Details about ICT Index trading strategy...</p>
+    </section>
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Email: example@example.com</p>
+        <p>Phone: 123-456-7890</p>
+        <p>Social Media: <a href="https://twitter.com" target="_blank">Twitter</a></p>
+    </section>
     <div id="chart-container">
         <canvas id="tradingChart"></canvas>
     </div>
