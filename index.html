@@ -44,6 +44,14 @@
             margin-top: 20px;
             height: 500px;
         }
+        #stock-suggester {
+            text-align: center;
+            margin-top: 40px;
+        }
+        #suggestions p {
+            text-align: left;
+            margin: 10px 0;
+        }
     </style>
 </head>
 <body>
@@ -85,6 +93,46 @@
             </div>
             <!-- TradingView Widget END -->
         </div>
+
+        <h2>Stock Suggester</h2>
+        <div id="stock-suggester">
+            <p>Enter a percentage change threshold:</p>
+            <input type="number" id="threshold" placeholder="Enter threshold in %" />
+            <button onclick="suggestStocks()">Suggest Stocks</button>
+            <div id="suggestions"></div>
+        </div>
     </main>
+
+    <script>
+        const stockData = [
+            { symbol: 'AAPL', priceChange: 2.5 },
+            { symbol: 'GOOGL', priceChange: -1.2 },
+            { symbol: 'AMZN', priceChange: 4.8 },
+            { symbol: 'MSFT', priceChange: 1.1 },
+            { symbol: 'TSLA', priceChange: -3.4 }
+        ];
+
+        function suggestStocks() {
+            const threshold = document.getElementById('threshold').value;
+            const suggestions = document.getElementById('suggestions');
+            suggestions.innerHTML = '';
+
+            if (threshold === '') {
+                suggestions.innerHTML = '<p>Please enter a valid threshold.</p>';
+                return;
+            }
+
+            const suggestedStocks = stockData.filter(stock => Math.abs(stock.priceChange) >= threshold);
+            if (suggestedStocks.length > 0) {
+                suggestedStocks.forEach(stock => {
+                    const stockElement = document.createElement('p');
+                    stockElement.textContent = `Symbol: ${stock.symbol}, Price Change: ${stock.priceChange}%`;
+                    suggestions.appendChild(stockElement);
+                });
+            } else {
+                suggestions.innerHTML = '<p>No stocks meet the threshold criteria.</p>';
+            }
+        }
+    </script>
 </body>
 </html>
