@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Richard Trades</title>
+    <link rel="stylesheet" href="css/styles.css">
     <style>
         body {
-            background-color: hsl(240, 21%, 15%);
+            background-color: #1E1E2E;
             color: #E0E0E0;
             font-family: Arial, sans-serif;
             margin: 0;
@@ -22,139 +23,66 @@
             font-size: 2em;
         }
         nav {
-            background-color: #333;
-            overflow: hidden;
+            margin: 20px 0;
+            text-align: center;
         }
         nav a {
-            float: left;
-            display: block;
             color: #E0E0E0;
-            text-align: center;
-            padding: 14px 16px;
             text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2em;
         }
         nav a:hover {
-            background-color: #575757;
+            text-decoration: underline;
         }
-        .dropdown {
-            float: left;
-            overflow: hidden;
+        main {
+            padding: 20px;
         }
-        .dropdown .dropbtn {
-            font-size: 16px;
-            border: none;
-            outline: none;
-            color: #E0E0E0;
-            padding: 14px 16px;
-            background-color: inherit;
-            font-family: inherit;
-            margin: 0;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #333;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-        .dropdown-content a {
-            float: none;
-            color: #E0E0E0;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-        }
-        .dropdown-content a:hover {
-            background-color: #575757;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        #chart-container {
-            width: 80%;
-            margin: 50px auto;
-        }
-        canvas {
-            background-color: #1E1E2E;
+        .chart-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            height: 500px;
         }
     </style>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <header>
         <h1>Richard Trades</h1>
     </header>
     <nav>
-        <div class="dropdown">
-            <button class="dropbtn">Trading Strategy</button>
-            <div class="dropdown-content">
-                <a href="strategy1.html">CRT</a>
-                <a href="strategy2.html">Basic ICT Pdarrays</a>
-                <a href="strategy3.html">ICT Index</a>
-            </div>
-        </div>
-        <div class="dropdown">
-            <button class="dropbtn">Chart Layout</button>
-            <div class="dropdown-content">
-                <a href="https://www.tradingview.com/chart/rJ1rCJ9r/" target="_blank">Chart Layout 1</a>
-            </div>
-        </div>
-        <div class="dropdown">
-            <button class="dropbtn">Contact Me</button>
-            <div class="dropdown-content">
-                <a href="#contact">Email</a>
-                <a href="#contact">Phone</a>
-                <a href="#contact">Social Media</a>
-            </div>
-        </div>
+        <a href="strategy1.html">Trading Strategy</a>
+        <a href="chart-layout.html">Chart Layout</a>
+        <a href="contact.html">Contact Me</a>
     </nav>
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: example@example.com</p>
-        <p>Phone: 123-456-7890</p>
-        <p>Social Media: <a href="https://twitter.com" target="_blank">Twitter</a></p>
-    </section>
-    <div id="chart-container">
-        <canvas id="tradingChart"></canvas>
-    </div>
-    <script>
-        const ctx = document.getElementById('tradingChart').getContext('2d');
-        const tradingChart = new Chart(ctx, {
-            type: 'line', // Using line chart for simplicity in this example
-            data: {
-                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-                datasets: [{
-                    label: 'Stock Price',
-                    data: [120, 150, 170, 180, 190, 200],
-                    backgroundColor: '#3B82F6',
-                    borderColor: '#3B82F6',
-                    fill: false,
-                    tension: 0.1
-                }]
-            },
-            options: {
-                scales: {
-                    x: {
-                        grid: {
-                            color: '#2E2E3E'
-                        },
-                        ticks: {
-                            color: '#E0E0E0'
-                        }
-                    },
-                    y: {
-                        grid: {
-                            color: '#2E2E3E'
-                        },
-                        ticks: {
-                            color: '#E0E0E0'
-                        }
-                    }
+    <main>
+        <h2>Live TradingView Chart</h2>
+        <div class="chart-container">
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container" style="height:100%;width:100%">
+                <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
+                <div class="tradingview-widget-copyright">
+                    <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank">
+                        <span class="blue-text">Track all markets on TradingView</span>
+                    </a>
+                </div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+                {
+                    "autosize": true,
+                    "symbol": "NASDAQ:AAPL",
+                    "interval": "D",
+                    "timezone": "Etc/UTC",
+                    "theme": "dark",
+                    "style": "1",
+                    "locale": "en",
+                    "allow_symbol_change": true,
+                    "calendar": false,
+                    "support_host": "https://www.tradingview.com"
                 }
-            }
-        });
-    </script>
+                </script>
+            </div>
+            <!-- TradingView Widget END -->
+        </div>
+    </main>
 </body>
 </html>
